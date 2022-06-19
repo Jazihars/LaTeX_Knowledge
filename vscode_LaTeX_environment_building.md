@@ -1,6 +1,7 @@
 # 使用vscode编写LaTeX
 vscode是我们最喜爱的文本编辑器。强大、开源、美观是它无可比拟的优点。本文记录了在Windows 10操作系统上使用vscode编写LaTeX的环境配置过程。我们参考[知乎上的使用VSCode编写LaTeX配置教程](https://zhuanlan.zhihu.com/p/38178015)来进行我们自己的配置。
 
+
 ## 安装TeX Live
 这个部分我们主要参考[TeX Live 2022 安装指南【安装 LaTeX】](https://zhuanlan.zhihu.com/p/493412905)，也可以参见[Github上的TeX Live2022安装教程pdf版本](https://github.com/OsbertWang/install-latex-guide-zh-cn)。
 
@@ -8,8 +9,10 @@ vscode是我们最喜爱的文本编辑器。强大、开源、美观是它无�
 
 下载完成后，我们直接点击进入`texlive2022.iso`文件，然后右键点击`install-tl-windows.bat`文件，以管理员身份运行`install-tl-windows.bat`文件即可。剩下的就是比较长时间的安装过程等待了。注意：一定要有耐心，一定要等到安装完全结束才行。绝对不能中途点`Abort（中止、中断）`。
 
+
 ## 在vscode中安装LaTeX Workshop插件
 这一步很容易，直接在vscode中搜索这个插件即可。
+
 
 ## 配置vscode的settings.json文件
 在vscode界面下按下`F1`，然后键入`setjson`，点击`Preferences: Open Settings(JSON)`，进入对`settings.json`文件的编辑。在`settings.json`文件中，添加如下的代码（注意：只需在`settings.json`文件的后面将下述代码添加到{}内部即可。注意对齐缩进）：
@@ -82,8 +85,10 @@ vscode是我们最喜爱的文本编辑器。强大、开源、美观是它无�
 ```
 至此，vscode编写LaTeX的环境就配置好了。可以来编写我们自己的任务了。
 
+
 ## LaTeX编写原则
 LaTeX的编写原则遵循一般的程序员通用原则：**不要重复造轮子**。实践原则是：**在任何情况下，我们都应该尽可能地使用优质的开源LaTeX模板代码来编写我们自己的LaTeX文件**。现在是开源代码的时代，我们一定得学会使用优质的开源代码。能够找到优质的开源代码，学会使用优质的开源代码，这就是我们编写程序的规则。首先学会使用优质的开源代码，然后在优质开源代码的基础上慢慢微调，增加我们自己的功能，而不是一开始就闷头楞写，这才是最高效的方式。
+
 
 ## 牛刀小试：排版一份简历
 接下来我们以简历为例，来进行测试。由于排版英文简历更容易一些，我们在这里测试中文简历的排版。中文简历的排版主要是需要解决一些字体的安装问题。这里我们以Github上的开源简历模板https://github.com/hijiangtao/resume 为例来进行测试。
