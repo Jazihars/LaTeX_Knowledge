@@ -91,135 +91,155 @@ LaTeX的编写原则遵循一般的程序员通用原则：**不要重复造轮�
 
 
 ## 牛刀小试：排版一份简历
-接下来我们以简历为例，来进行测试。由于排版英文简历更容易一些，我们在这里测试中文简历的排版。中文简历的排版主要是需要解决一些字体的安装问题。这里我们以Github上的开源简历模板https://github.com/hijiangtao/resume 为例来进行测试。
+接下来我们以简历为例，来进行测试。由于排版英文简历更容易一些，我们在这里测试中文简历的排版。中文简历的排版主要是需要解决一些字体的安装问题。这里我们以overleaf上的开源简历模板https://www.overleaf.com/latex/templates/chinese-resume-template-zhong-wen-jian-li-mo-ban/fbdypsjmgwbb 为例来进行测试。
 
-首先，下载Github上的开源简历模板https://github.com/hijiangtao/resume 的全部代码。
+首先，下载overleaf上的开源简历模板https://www.overleaf.com/latex/templates/chinese-resume-template-zhong-wen-jian-li-mo-ban/fbdypsjmgwbb 的全部代码。点击Open as Template，再点击左上角的Menu，下载Source压缩文件。这就是全部的代码。
 
-然后，我们在任意路径建立一个自己的文件夹`LaTeX_test`。新建文件LaTeX_test/mytest.tex
+然后，我们在任意路径建立一个自己的文件夹`my_resume`。新建文件`my_resume/my_resume.tex`
 
-接下来，把开源代码https://github.com/hijiangtao/resume 中的`fonts`文件夹和所有`.cls`、`.sty`文件复制到我自己的文件夹`LaTeX_test`之下。
+接下来，解压刚刚下载的压缩文件，把里面的全部内容复制到我们自己的文件夹`my_resume`里面。
 
-然后把下述代码放入LaTeX_test/mytest.tex文件：
+然后把下述代码放入`my_resume/my_resume.tex`文件：
 ``` tex
-% !TEX TS-program = xelatex
-% !TEX encoding = UTF-8 Unicode
-% !Mode:: "TeX:UTF-8"
-
 \documentclass{resume}
-\usepackage{zh_CN-Adobefonts_external} % Simplified Chinese Support using external fonts (./fonts/zh_CN-Adobe/)
-%\usepackage{zh_CN-Adobefonts_internal} % Simplified Chinese Support using system fonts
-\usepackage{linespacing_fix} % disable extra space before next section
+\usepackage{zh_CN-Adobefonts_external} 
+\usepackage{linespacing_fix}
 \usepackage{cite}
-
 \begin{document}
-\pagenumbering{gobble} % suppress displaying page number
+\pagenumbering{gobble}
 
-\name{江涛}
 
-% {E-mail}{mobilephone}{homepage}
-% be careful of _ in emaill address
-\contactInfo{(+86) 132-6029-9910}{hijiangtao@gmail.com}{Web前端研发工程师}{GitHub @hijiangtao}
-% {E-mail}{mobilephone}
-% keep the last empty braces!
-%\contactInfo{xxx@yuanbin.me}{(+86) 131-221-87xxx}{}
- 
-\section{个人总结}
-本人在校成绩优秀、乐观向上，工作负责、自我驱动力强、热爱尝试新事物，认同开放、连接、共享的Web在未来的不可替代性。在校期间长期从事可视分析(Web的2D/3D时空可视化)相关研究，对Web技术发展趋势及前端工程化解决方案有浓厚兴趣。\textbf{现任职于阿里巴巴集团。}
 
-% \section{\faGraduationCap\ 教育背景}
+%***"%"后面的所有内容是注释而非代码，不会输出到最后的PDF中
+%***使用本模板，只需要参照输出的PDF，在本文档的相应位置做简单替换即可
+%***修改之后，输出更新后的PDF，只需要点击Overleaf中的“Recompile”按钮即可
+%**********************************姓名********************************************
+\name{Tony Yin}
+%**********************************联系信息****************************************
+%第一个括号里写手机号，第二个写邮箱
+\contactInfo{(+86) XXXXXXXXXXX}{XXXXXXX@XXXXXXXXXX.com}
+%**********************************其他信息****************************************
+%在大括号内填写其他信息，最多填写4个，但是如果选择不填信息，
+%那么大括号必须空着不写，而不能删除大括号。
+%\otherInfo后面的四个大括号里的所有信息都会在一行输出
+%如果想要写两行，那就用两次这个指令（\otherInfo{}{}{}{}）即可
+\otherInfo{性别：男}{籍贯：美国}{}{}
+% \otherInfo{来历：钱钟书《围城》}{}{}{}
+%*********************************照片**********************************************
+%照片需要放到images文件夹下，名字必须是you.jpg，如果不需要照片可以不添加此行命令
+%0.15的意思是，照片的宽度是页面宽度的0.15倍，调整大小，避免遮挡文字
+\yourphoto{0.13}
+%**********************************正文**********************************************
+
+
+%***大标题，下面有横线做分割
+%***一般的标题有：教育背景，实习（项目）经历，工作经历，自我评价，求职意向，等等
 \section{教育背景}
-\datedsubsection{\textbf{中国科学院大学},计算机应用技术,\textit{在读硕士研究生}}{2015.9 - 2018.6}
-\ \textbf{排名11/133(前10\%)},中国科学院大学学业奖学金(2次),IEEE Student member,预计2018年6月毕业
-\datedsubsection{\textbf{北京理工大学},软件工程,\textit{工学学士}}{2011.9 - 2015.6}
-\ \textbf{排名2/62(前5\%)},国家励志奖学金,人民奖学金(7次),科技竞赛奖(2次),北京市普通高等学校优秀毕业生,北京理工大学优秀毕业生,软件学院金牌毕业生,优秀团员/优秀学生(5次)
-\datedsubsection{\textbf{荷兰 莱顿大学},计算机科学与技术,\textit{国家留学基金委公派交换生}}{2015.3 - 2015.5}
-\ 2014年中国政府奖学金(\textit{http://www.csc.edu.cn/}),DID-ACTE项目交换生(\textit{http://did-acte.org/})
 
-% \section{\faCogs\ IT 技能}
+
+%***********一行子标题**************
+%***第一个大括号里的内容向左对齐，第二个大括号里的内容向右对齐
+%***\textbf{}括号里的字是粗体，\textit{}括号里的字是斜体
+\datedsubsection{\textbf{野兔理工学院}，数学学院，\textit{博士}}{2010.09 - 2013.06}
+
+
+%***********列举*********************
+%***可添加多个\item，得到多个列举项，类似的也可以用\textbf{}、\textit{}做强调
+\begin{itemize} [parsep=1ex]
+    \item \textbf{基础数学}：博士
+    \item \textbf{深度学习}：XXX
+\end{itemize}
+
+~\\
+
+\datedsubsection{\textbf{野兔理工学院}，计算机学院，\textit{本科}}{2005.09 - 2010.06}
+\begin{itemize} [parsep=1ex]
+    \item \textbf{计算机科学与技术}：理学学士
+\end{itemize}
+
+
+~\\
+~\\
+~\\
+~\\
+~\\
+~\\
+~\\
+
+\section{职业经历}
+
+\datedsubsection{\textbf{野兔理工技术研发有限公司}，算法实习生}{2011.04 - 2012.06}
+\begin{itemize}[parsep=0.5ex]
+    \item XXX
+    \item XXX
+    \item XXX
+    \item XXX
+\end{itemize}
+
+% \datedsubsection{\textbf{三闾大学}，副教授}{1931.09 - 1934.6}
+% \begin{itemize}[parsep=0.5ex]
+%     \item 同事：李梅、顾尔、孙、楣
+% \end{itemize}
+
+% \datedsubsection{\textbf{上海某报社}，职员}{1934.09 -}
+% \begin{itemize}[parsep=0.5ex]
+%     \item 生活不如意
+% \end{itemize}
+
+
+~\\
+~\\
+~\\
+~\\
+~\\
+~\\
+~\\
+
+
 \section{技术能力}
-% increase linespacing [parsep=0.5ex]
-\begin{itemize}[parsep=0.2ex]
-  \item \textbf{编程语言}: JavaScript (ECMAScript, Node.js), HTML/CSS, Python, Go, SQL, C, Shell
-  \item \textbf{操作系统,数据库与工程构建}: Linux/macOS/MySQL/MongoDB/Git/webpack/Progressive Web App
-  \item \textbf{关键词}: React/Vue.js/D3.js(SVG)/three.js(canvas, WebGL)/chrome extension/Express
-\end{itemize}
 
+\datedsubsection{\textbf{编程语言}：Python, Shell}{}
+% \begin{itemize}[parsep=0.5ex]
+%     \item \textbf{地点}：上
 % \end{itemize}
 
-\section{实习经历}
-\datedsubsection{\textbf{阿里巴巴集团 | Alibaba}, 前端开发工程师}{2017.6-2017.9}
-\begin{itemize}
-%   \item 飞猪北京前端团队全面负责各交通线的票务(机票/火车票/汽车票) web 应用与事业群基础架构研发
-  \item 独立负责车站地图开发(React),通过HTML5 本地存储及JSBridge实现在阿里全系应用中发布上线
-  \item 独立负责BU SPM chrome插件开发,支付成功/订单详情等页面的开发与交叉营销的接入工作
-\end{itemize}
-
-\datedsubsection{\textbf{北京腾云天下科技有限公司 | TalkingData},数据挖掘与可视化工程师}{2015.11-2017.5}
-\begin{itemize}
-  \item \textbf{利用海量用户定位数据，对城市空间及人群移动特征进行研究。}第一个课题是基于香农熵和人群出行模式，构建城市网格与用户矩阵分析城市多样性/流动性分布；可视分析平台前端与可视化基于D3/Vue/Express开发，数据分析与存储采用Python/MySQL/MongoDB技术，为了均衡大数据情况下的页面可视化渲染消耗用canvas替代svg。第二个课题是对海量商场定位数据做人群分类与可视化查询，依据该系统撰写的论文被CIKM 2016(DAVA Workshop)录用，并收录于中科院软件所年会成果集
-  \item 负责数据科学部HQ LAB的可视化原型开发，主导 TalkingMind 平台系统设计与前端开发
-\end{itemize}
-
-\datedsubsection{\textbf{北京格灵深瞳信息技术有限公司 | DeepGlint},Web开发工程师}{2015.7-2015.9}
-\begin{itemize}
-  \item \textbf{独立负责MUSE部门的可视化组件研发。}与平台研发、设计协作完成 DeepGlint Developer 平台可视化图表组件的集成开发，符合完全定制化渲染、响应式布局与实时更新等特点
-  \item 利用 D3+Vue+WebGL(Three.js) 尝试实现三维空间的人群移动可视化
-\end{itemize}
-
-% \begin{onehalfspacing}
-% \end{onehalfspacing}
-
-% \datedsubsection{\textbf{DID-ACTE} 荷兰莱顿}{2015年3月 - 2015年6月}
-% \role{本科毕业设计}{LIACS 交换生}
-% 利用结巴分词对中国古文进行分词与词性标注，用已有领域知识训练形成 classifier 并对结果进行调优
-% \begin{onehalfspacing}
-% \begin{itemize}
-%   \item 利用结巴分词对中国古文进行分词与词性标注
-%   \item 利用已有领域知识训练形成 classifier, 并用分词结果进行测试反馈
-%   \item 尝试不同规则，对 classifier 进行调优
+\datedsubsection{\textbf{操作系统、数据库与工程构建}：Linux, Git}{}
+% \begin{itemize}[parsep=0.5ex]
+%     \item \textbf{地点}：上海
+%     \item 苏
+%     \item 方
 % \end{itemize}
-% \end{onehalfspacing}
 
-\section{竞赛获奖/项目作品}
-% increase linespacing [parsep=0.5ex]
-\begin{itemize}[parsep=0.2ex]
-%   \item LeetCodeOJ Solutions, \textit{https://github.com/hijiangtao/LeetCodeOJ}
-  \item 第三届中国软件杯大学生软件设计大赛\textbf{全国一等奖}( \textit{http://www.cnsoftbei.com/} ),2014 年8月
-  \item 中国机器人大赛创意设计大赛\textbf{全国特等奖}( \textit{http://www.rcccaa.org/} ),2013年8月
-%   \item 中国机器人大赛暨Robocup公开赛(武术擂台赛)全国一等奖,2013年10月
-  \item 第11届北京理工大学“世纪杯”竞赛学生课外科技作品竞赛\textbf{特等奖},2013年8月
-  \item VIS Components for security system, \textit{https://hijiangtao.github.io/ss-vis-component/}
-  \item 个人博客：\textit{https://hijiangtao.github.io/}，更多作品见 \textit{https://github.com/hijiangtao}
-%   \item 电视节目"爸爸去哪儿"可视化分析展示, \textit{https://hijiangtao.github.io/variety-show-hot-spot-vis/}
-\end{itemize}
+% \datedsubsection{\textbf{唐}，热}{1930.08 - 1931.08}
+% \begin{itemize}[parsep=0.5ex]
+%     \item \textbf{地点}：上海
+%     \item 小
+%     \item 小
+% \end{itemize}
 
-% \section{\faHeartO\ 项目/作品摘要}
-% \section{项目/作品摘要}
-% \datedline{\textit{An Integrated Version of Security Monitor Vis System}, https://hijiangtao.github.io/ss-vis-component/ }{}
-% \datedline{\textit{Dark-Tech}, https://github.com/hijiangtao/dark-tech/ }{}
-% \datedline{\textit{融合社交网络数据挖掘的电视节目可视化分析系统}, https://hijiangtao.github.io/variety-show-hot-spot-vis/}{}
-% \datedline{\textit{LeetCodeOJ Solutions}, https://github.com/hijiangtao/LeetCodeOJ}{}
-% \datedline{\textit{Info-Vis}, https://github.com/ISCAS-VIS/infovis-ucas}{}
+% \datedsubsection{\textbf{孙}，子}{1934.08 -}
+% \begin{itemize}[parsep=0.5ex]
+%     \item \textbf{地点}：大学
+%     \item 讽刺
+%     \item 矛盾
+% \end{itemize}
 
+% \section{简历写作注意事项}
 
-% \section{\faInfo\ 社会实践/其他}
-\section{社区参与/实践其他}
-% increase linespacing [parsep=0.5ex]
-\begin{itemize}[parsep=0.2ex]
-  \item 乐于参与开源社区讨论,\textbf{参与翻译 Vue.js, webpack, WebAssembly, Babel 文档，印记中文成员}
-  \item 中国科学院大学2016秋季学期可视化与可视分析课程助教，\textit{http://vis.ios.ac.cn/infovis-ucas/}
-  \item 未来论坛学生会成员、北理社联新闻信息中心主任、北理工软件学院学生会宣传部副部长(2012-2016)
-  \item 2013-2015 北京市共青团“温暖衣冬”志愿者,第九届园博会志愿者,2014 FLL机器人世锦赛志愿者
-\end{itemize}
+% 写作时不要泛泛而谈太笼统，要应用STAR原则，即Situation（情景）、Task（任务）、Action（行动）和Result（结果）四个英文单词的首字母组合。
 
-%% Reference
-%\newpage
-%\bibliographystyle{IEEETran}
-%\bibliography{mycite}
+% \begin{itemize}[parsep=0.5ex]
+%     \item S指的是situation，事情是在什么情况下发生
+%     \item T指的是task，你是如何明确你的目标的
+%     \item A指的是action，针对这样的情况分析，你采用了什么行动方式
+%     \item R指的是result，结果怎样，在这样的情况下你学习到了什么
+% \end{itemize}
+
 \end{document}
+
 ```
 
-接下来，点击vscode左侧的Activity Bar，使用`xelatex`编译我们的代码。然后就可以在`LaTeX_test`文件夹下查看我们生成的mytest.pdf文件了。
+接下来，点击vscode左侧的Activity Bar，使用`xelatex`编译我们的代码。然后就可以在`my_resume`文件夹下查看我们生成的`my_resume.pdf`文件了。
 
 
 ## 另一个例子：排版毕业论文
