@@ -93,7 +93,7 @@ LaTeX的编写原则遵循一般的程序员通用原则：**不要重复造轮�
 ## 牛刀小试：排版一份简历
 接下来我们以简历为例，来进行测试。由于排版英文简历更容易一些，我们在这里测试中文简历的排版。中文简历的排版主要是需要解决一些字体的安装问题。这里我们以overleaf上的开源简历模板https://www.overleaf.com/latex/templates/chinese-resume-template-zhong-wen-jian-li-mo-ban/fbdypsjmgwbb 为例来进行测试。
 
-首先，下载overleaf上的开源简历模板https://www.overleaf.com/latex/templates/chinese-resume-template-zhong-wen-jian-li-mo-ban/fbdypsjmgwbb 的全部代码。点击Open as Template，再点击左上角的Menu，下载Source压缩文件。这就是全部的代码。
+首先，下载overleaf上的开源简历模板https://www.overleaf.com/latex/templates/chinese-resume-template-zhong-wen-jian-li-mo-ban/fbdypsjmgwbb 的全部代码。点击`Open as Template`按钮，再点击左上角的`Menu`，下载`Source`压缩文件。这就是全部的代码。
 
 然后，我们在任意路径建立一个自己的文件夹`my_resume`。新建文件`my_resume/my_resume.tex`
 
